@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BookApp.Models.Book>
+
+
+@{
+    ViewData["Title"] = "Catalogue";
+ 
+}
+
+<h1>Catalogue</h1>
+<head>
+<style>
+  body{
+        background-image:url('https://www.teahub.io/photos/full/190-1905135_background-images-of-books.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+      
+    }
+</style>
+<script>
+     function fnalert()
+        {
+            var t1=document.getElementById('t1');
+         if (t1 == "0") {
+             alert("Out of Stock")
+         }
+</script>
+</head>
+<form asp-controller="Books" asp-action="Catalogue" method="get">
+    <p>Search:
+    <input type="text" Name="search" />
+    <input type="submit" value="filter"/>
+    </p>
+</form>
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header" style="text-align:center;text-color:orange;font-style:bold">
+                       Book Name: @item.Book_Name
+                        <br/>
+                        Author: @item.Author
+                    </div>
+                    <div class="card-body" style="text-align:center">
+                        <img src="~/images/@item.ImageUrl" height="150" /> <br/>
+                        Price:@item.Price
+                    </div>
+                    <div class="card-footer" >
+                         <a asp-controller="CartItems" asp-action="Create" asp-route-id="@item.Id"  class="btn btn-outline-primary" onclick="fnalert()">Buy</a>
+                        <div id="t1"> InStock:@item.Quantity</div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

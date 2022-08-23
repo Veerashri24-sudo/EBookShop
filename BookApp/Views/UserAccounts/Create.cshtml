@@ -1,0 +1,97 @@
+﻿@model BookApp.Models.UserAccounts
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1 style="color:orange;text-align:center">REGISTER HERE!</h1>
+<head>
+    <style>
+ 
+
+input[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.eg1{
+    width:15px;
+}
+
+  body{
+        background-image:url('https://www.teahub.io/photos/full/190-1905135_background-images-of-books.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+   
+    }
+</style>
+</head>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" style="text-s">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" required=""/>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="First_Name" class="control-label"></label>
+                <input asp-for="First_Name" class="form-control" />
+                <span asp-validation-for="First_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Last_Name" class="control-label"></label>
+                <input asp-for="Last_Name" class="form-control" />
+                <span asp-validation-for="Last_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label class="control-label">Role</label>
+                <select name="Role"  class="form-control" asp-for="Role">
+                    <option value="select">Please select</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Login" style="color:Black">Already Account..Click here for SignUp</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

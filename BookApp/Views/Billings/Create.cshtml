@@ -1,0 +1,143 @@
+﻿@model BookApp.Models.Billing
+
+@{
+    ViewData["Title"] = "Create";
+     
+
+
+}
+
+<h1>Create</h1>
+<head>
+     <script type="text/javascript">
+        function fnshow()
+        {
+            var type=document.getElementById('s1').value;
+            if(type!="COD")
+            {
+                document.getElementById('d1').style.display='';
+                document.getElementById('d2').style.display='';
+                document.getElementById('d3').style.display='';
+                document.getElementById('d4').style.display='';
+                document.getElementById('d5').style.display='';
+               
+
+            }
+            else{
+                document.getElementById('d1').style.display='none';
+                 document.getElementById('d2').style.display='none';
+                  document.getElementById('d3').style.display='none';
+                   document.getElementById('d4').style.display='none';
+                    document.getElementById('d5').style.display='none';
+                   
+            }
+            if(type=="COD"){
+              var a=  alert("Your order is done successfully");
+
+            }
+        }
+        function formdata(){
+            alert("Transaction completed successfully")
+        }
+    </script>
+    <style>
+  body{
+        background-image:url('https://www.teahub.io/photos/full/190-1905135_background-images-of-books.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+      
+    }
+</style>
+
+
+</head>
+<h4>Billing</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+              
+                 <label class="control-label">Payment_Type</label>
+                <select name="Payment_Type"  class="form-control" asp-for="Payment_Type" id="s1" onchange="fnshow()">
+                    <option value="select">--select--</option>
+                    <option value="Prepaid">Pre Paid</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                
+            </div>
+                </div>
+                <div class="col-md-6">
+                 <div class="form-group">
+               
+            </div>
+               </div>
+            </div>
+            <div class="row">
+             <div class="col-md-6" id="d1" style="display:none;">
+            
+             <label class="control-label">Bank_Name</label>
+                <select name="Bank_Name"  class="form-control" asp-for="Bank_Name">
+                    <option value="1">--select--</option>
+                    <option value="2">State Bank Of India</option>
+                    <option value="3">Union Bank Of India</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group" id="d2" style="display:none;">
+                <label asp-for="Branch" class="control-label"></label>
+                <input asp-for="Branch" class="form-control" />
+                <span asp-validation-for="Branch" class="text-danger"></span>
+            </div>
+            </div>
+            </div>
+
+             <div class="row">
+             <div class="col-md-6">
+            <div class="form-group" id="d3" style="display:none;">
+
+                <label asp-for="CreditCard_Number" class="control-label"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">#</div>
+                    </div>
+                    <input asp-for="CreditCard_Number" class="form-control" />
+                </div>
+                
+                <span asp-validation-for="CreditCard_Number" class="text-danger"></span>
+            </div>
+            </div>
+             <div class="col-md-4">
+            <div class="form-group" id="d4" style="display:none;">
+                <label asp-for="CardExpiryDate" class="control-label"></label>
+                <input asp-for="CardExpiryDate" class="form-control"/>
+                <span asp-validation-for="CardExpiryDate" class="text-danger"></span>
+            </div>
+            </div>
+        
+             <div class="col-md-2">
+            <div class="form-group" id="d5" style="display:none;">
+                <label asp-for="cvv" class="control-label"></label>
+                <input asp-for="cvv" class="form-control"  type="password" maxlength="3" />
+                <span asp-validation-for="cvv" class="text-danger"></span>
+            </div>
+          </div>
+          </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-success" onclick="formdata()"/>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

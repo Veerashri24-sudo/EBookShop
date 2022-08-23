@@ -1,0 +1,103 @@
+﻿@model IEnumerable<BookApp.Models.Billing>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1 class="text-center" style="color:white"><i class="fas fa-comment-rupee text-success"></i><span>&#8377;</span>Billing History</h1>
+<head>
+<style>
+  body{
+        background-image:url('https://www.teahub.io/photos/full/190-1905135_background-images-of-books.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+      
+    }
+</style>
+</head>
+
+<table class="table table-bordered">
+    <thead">
+        <tr class="bg-secondary">
+               <th>
+                @Html.DisplayNameFor(model => model.User_Id)
+            </th>
+              <th>
+                @Html.DisplayNameFor(model => model.Book_Id)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Payment_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Payment)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Bank_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditCard_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardExpiryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cvv)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            
+          @*  <th>
+                
+                  <a asp-action="Create" class="btn btn-success text-white">New Transaction</a>
+
+            </th>*@
+        </tr>
+
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr  class="bg-light">
+             <td>
+                @Html.DisplayFor(modelItem => item.User_Id)
+            </td>
+               <td>
+                @Html.DisplayFor(modelItem => item.Book_Id)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Payment_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Payment)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditCard_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardExpiryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cvv)
+            </td>        
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

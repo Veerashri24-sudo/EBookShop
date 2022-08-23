@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+<head>
+
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  
+ <style>
+ 
+       input[type=text], select {
+  width: 100%;
+  
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 100%;
+  
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 5%;
+  background-color: #4CAF50;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+   
+  body{
+        background-image:url('https://www.teahub.io/photos/full/190-1905135_background-images-of-books.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+   
+    }
+</style>
+</head>
+
+@{ Layout = null;}
+
+<h2 style="font-style:italic; text-align:center">LOGIN</h2>
+<form asp-action="Login">
+    <table><tr>
+    <div class="form-group">
+       <th><label  class="control-label"> Email Id</label></th> 
+        <td><input name="na" type="text" class="form-control"/></td>
+    </div></tr>
+    <tr>
+    <div class="form-group">
+        <th><label for="pa" class="control-label"> Password</label></th>
+       <td> <input name="pa" type="password" class="form-control" ></td> <br />
+    </div></tr>
+    <tr>
+    <div class="form-group" id="eg1">
+              <th> <label class="control-label">Role</label></th> 
+               <td><select name="role"  class="form-control"  >
+                    <option value="select">Please select</option>
+                    <option value="Admin">Admin</option>
+                    <option value="User">User</option>
+                </select>
+                </td> 
+            </div>
+            </tr>
+            </table>
+    <input type="submit" value="Login" class="btn btn-primary" />
+    
+    <p style="color:red"> @ViewData["message"]</p>
+</form>
+ <a asp-action="Create">New User...ClickHere</a>
+
+

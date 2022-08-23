@@ -1,0 +1,68 @@
+﻿@model IEnumerable<BookApp.Models.Billing>
+
+@{
+    ViewData["Title"] = "CustomerOrders";
+}
+
+<h1  style="font-style:bold ;text-align:center">CustomerOrders</h1>
+<head>
+<style>
+  body{
+        background-image:url('https://www.teahub.io/photos/full/190-1905135_background-images-of-books.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+     
+    }
+</style>
+</head>
+<table class="table table-bordered table-striped">
+    <thead class="bg-secondary">
+        <tr>
+              <th>
+                @Html.DisplayNameFor(model => model.Book_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment_Type)
+            </th>
+           
+          
+          
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="bg-light">
+              <td>
+                @Html.DisplayFor(modelItem => item.Book_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment_Type)
+            </td>
+          
+            
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+         
+        </tr>
+}
+    </tbody>
+</table>

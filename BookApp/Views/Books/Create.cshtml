@@ -1,0 +1,75 @@
+﻿@model BookApp.Models.Book
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="font-style:italic; text-align:center">Add Books</h1>
+<head>
+<style>
+  body{
+        background-image:url('https://www.teahub.io/photos/full/190-1905135_background-images-of-books.png');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+      
+    }
+</style>
+</head>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+         
+          
+            <div class="form-group" style="text-bold">
+                <label asp-for="Book_Name" class="control-label"></label>
+                <input asp-for="Book_Name" class="form-control" placeholder="Enter Book Name"/>
+                <span asp-validation-for="Book_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" placeholder="Enter Author Name"/>
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" placeholder="Give Book Category"/>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" placeholder="Short description on this book"/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" placeholder="Enter the quantity available" />
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" placeholder="Enter Book cost"/>
+                <span asp-validation-for="Price" class="text-danger" ></span>
+            </div>
+             <div class="form-group">
+                <label class="control-label">Pic</label>
+                <input type="file" class="form-control" name="file" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
